@@ -47,10 +47,33 @@ img {
     align-items: center;
 }
 
-.button--texto {
+.none {
+    display: none;
+}
+
+.button--style {
     font-family: var(--fuenteBotones);
     font-weight: bold;
     font-size: 2.6rem;
+    background-color: rgb(71, 123, 255);
+}
+
+.button--style--pri {
+    background-color: rgb(71, 123, 255);
+}
+
+.button--style--pri:hover {
+    background-color: rgb(48, 61, 213);
+    transition: .5s;
+}
+
+.button--style--sec {
+    background-color: #baffcb;
+}
+
+.button--style--sec:hover {
+    transition: .5s;
+    background-color: #72c888;
 }
 
 /*Header*/
@@ -63,7 +86,6 @@ img {
 
 .principal {
     height: 100%;
-    display: none;
 }
 
 .boton {
@@ -84,12 +106,6 @@ img {
     margin-bottom: 2rem;
     padding: 8rem;
     font-size: 3.6rem;
-    background-color: rgb(71, 123, 255);
-}
-
-.boton--primario:hover {
-    background-color: rgb(48, 61, 213);
-    transition: .5s;
 }
 
 @media (min-width: 768px) {
@@ -100,12 +116,6 @@ img {
 
 .boton--secundario {
     padding: 2rem;
-    background-color: #baffcb;
-}
-
-.boton--secundario:hover {
-    transition: .5s;
-    background-color: #72c888;
 }
 
 @media (min-width: 768px) {
@@ -127,6 +137,7 @@ img {
 .form__input {
     background-color: transparent;
     border: none;
+    outline: none;
     font-family: var(--fuentePrincipal);
     width: 100%;
     font-size: 2.2rem;
@@ -171,7 +182,6 @@ img {
 .form__button__submit--main {
     margin-bottom: 2.6rem;
     padding: 2rem 9rem;
-    background-color: rgb(71, 123, 255);
 }
 
 @media (min-width: 768px) { 
@@ -183,5 +193,4 @@ img {
 
 .form__button__submit--back {
     padding: 2rem 12rem;
-    background-color: #baffcb;
 }

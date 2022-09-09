@@ -20,29 +20,36 @@
     </header>
 
     <main class="contenedor ">
-        <div class="principal flex flex--centrar">
-            <a class="boton boton--primario .button--texto" href="#">Iniciar Juego</a>
-            <a class="boton boton--secundario .button--texto" href="#">Agregar nueva palabra</a>
+        <div class="principal flex flex--centrar none">
+            <a class="boton boton--primario button--style button--style--pri" href="#">Iniciar Juego</a>
+            <a class="boton boton--secundario button--style button--style--sec" href="#">Agregar nueva palabra</a>
         </div>
 
-        <div class="nueva-palabra flex flex--centrar">
+        <div class="nueva-palabra flex flex--centrar none">
             <form class="form">
                 <input class="form__input" type="text" placeholder="Ingresa una palabra" required>
 
-                <div class="form__advertencia flex">
+                <div class="form__advertencia">
                     <img src="img/Vector.png" alt="Advertencia">
                     <p class="form__advertencia__texto">Máx. de 8 letras</p>
                 </div>
 
                 <div class="form__button">
-                    <input class="form__button__submit form__button__submit--main button--texto" type="submit" value="Guardar y empezar">
-                    <input class="form__button__submit form__button__submit--back button--texto" type="submit" value="Cancelar">
+                    <input class="form__button__submit form__button__submit--main button--style button--style--pri" 
+                    type="submit" value="Guardar y empezar">
+                    <input class="form__button__submit form__button__submit--back button--style button--style--sec" 
+                    type="submit" value="Cancelar">
                 </div>
             </form>
         </div>
 
-        <div class="juego">
-            
+        <div class="juego flex flex--centrar">
+            <div class="juego__canva"></div>
+
+            <div class="juego__button">
+                <input type="submit" value="Nuevo juego" class="button--style button--style--pri">
+                <input type="submit" value="Salir" class="button--style button--style--sec">
+            </div>
         </div>
     </main>
 
