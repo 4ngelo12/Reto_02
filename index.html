@@ -19,7 +19,7 @@
         <a href="index.html"> <img class="header__img" src="img/Logo.png" alt=""></a>
     </header>
 
-    <main class="contenedor ">
+    <main class="contenedor">
         <div class="principal flex flex--centrar none">
             <a class="boton boton--primario button--style button--style--pri" href="#">Iniciar Juego</a>
             <a class="boton boton--secundario button--style button--style--sec" href="#">Agregar nueva palabra</a>
@@ -44,11 +44,19 @@
         </div>
 
         <div class="juego flex flex--centrar">
-            <div class="juego__canva"></div>
+            <div class="juego__canva">
+                <canvas class="hangman"></canvas>
+            </div>
+
+            <div class="juego__lc"></div>
+
+            <div class="juego__lu"></div>
 
             <div class="juego__button">
-                <input type="submit" value="Nuevo juego" class="button--style button--style--pri">
-                <input type="submit" value="Salir" class="button--style button--style--sec">
+                <input class="juego__button__submit juego__button__submit--main button--style button--style--pri"
+                type="submit" value="Nuevo juego">
+                <input class="juego__button__submit juego__button__submit--back button--style button--style--sec" 
+                type="submit" value="Salir">
             </div>
         </div>
     </main>
