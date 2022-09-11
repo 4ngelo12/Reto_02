@@ -16,11 +16,11 @@
 
 <body>
     <header class="header">
-        <a href="index.html"> <img class="header__img" src="img/Logo.png" alt=""></a>
+        <a href="index.html"> <img class="header__img" src="img/Logo.png" alt="Logo" id="logo"></a>
     </header>
 
     <main class="contenedor">
-        <div class="principal flex flex--centrar none">
+        <div class="principal flex flex--centrar">
             <input type="button" class="boton boton--primario button--style button--style--pri" value="Iniciar Juego">
             <input type="button" class="boton boton--secundario button--style button--style--sec"
                 value="Agregar nueva palabra">
@@ -37,14 +37,14 @@
 
                 <div class="form__button">
                     <input class="form__button__submit form__button__submit--main button--style button--style--pri"
-                        type="submit" value="Guardar y empezar">
+                        type="button" value="Guardar y empezar">
                     <input class="form__button__submit form__button__submit--back button--style button--style--sec"
                         type="button" value="Cancelar">
                 </div>
             </form>
         </div>
 
-        <div class="juego flex flex--centrar">
+        <div class="juego flex flex--centrar none">
             <div class="juego__canva">
                 <canvas class="hangman"></canvas>
             </div>
@@ -66,6 +66,8 @@
         <p>&copy Copyright Casapaico Rivera, Angelo Paolo - 2022</p>
     </footer>
 
+    <script src="js/secciones.js"></script>
+    <script src="js/juego.js"></script>
     <script src="js/muneco.js"></script>
 </body>
 
