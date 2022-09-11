@@ -21,13 +21,14 @@
 
     <main class="contenedor">
         <div class="principal flex flex--centrar none">
-            <a class="boton boton--primario button--style button--style--pri" href="#">Iniciar Juego</a>
-            <a class="boton boton--secundario button--style button--style--sec" href="#">Agregar nueva palabra</a>
+            <input type="button" class="boton boton--primario button--style button--style--pri" value="Iniciar Juego">
+            <input type="button" class="boton boton--secundario button--style button--style--sec"
+                value="Agregar nueva palabra">
         </div>
 
         <div class="nueva-palabra flex flex--centrar none">
             <form class="form">
-                <input class="form__input" type="text" placeholder="Ingresa una palabra" required>
+                <input class="form__input" type="text" placeholder="Ingresa una palabra">
 
                 <div class="form__advertencia">
                     <img src="img/Vector.png" alt="Advertencia">
@@ -35,10 +36,10 @@
                 </div>
 
                 <div class="form__button">
-                    <input class="form__button__submit form__button__submit--main button--style button--style--pri" 
-                    type="submit" value="Guardar y empezar">
-                    <input class="form__button__submit form__button__submit--back button--style button--style--sec" 
-                    type="submit" value="Cancelar">
+                    <input class="form__button__submit form__button__submit--main button--style button--style--pri"
+                        type="submit" value="Guardar y empezar">
+                    <input class="form__button__submit form__button__submit--back button--style button--style--sec"
+                        type="button" value="Cancelar">
                 </div>
             </form>
         </div>
@@ -54,14 +55,18 @@
 
             <div class="juego__button">
                 <input class="juego__button__submit juego__button__submit--main button--style button--style--pri"
-                type="submit" value="Nuevo juego">
-                <input class="juego__button__submit juego__button__submit--back button--style button--style--sec" 
-                type="submit" value="Salir">
+                    type="button" value="Nuevo juego">
+                <input class="juego__button__submit juego__button__submit--back button--style button--style--sec"
+                    type="button" value="Salir">
             </div>
         </div>
     </main>
 
+    <footer class="footer">
+        <p>&copy Copyright Casapaico Rivera, Angelo Paolo - 2022</p>
+    </footer>
 
+    <script src="js/muneco.js"></script>
 </body>
 
 </html>
