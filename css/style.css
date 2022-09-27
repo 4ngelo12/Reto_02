@@ -25,7 +25,6 @@ body {
 
 .contenedor {
     width: min(90%, 120rem);
-    height: 86vh;
     margin: 0 auto;
 }
 
@@ -104,6 +103,7 @@ img {
 }
 
 .boton--primario {
+    margin-top: 18rem;
     margin-bottom: 2rem;
     padding: 8rem;
     font-size: 3.6rem;
@@ -157,35 +157,34 @@ img {
 }
 
 .form__button {
-    margin-top: 5rem;
+    margin-top: 2rem;
     align-items: center;
 }
 
-.form__button__submit {
+.form__button {
     border-radius: 1rem;
     width: 100%;
 }
 
 @media (min-width: 768px) {
-    .form__button__submit {
+    .form__button {
         font-size: 2rem;
         width: auto;
     }
 }
 
-.form__button__submit--main {
-    margin-bottom: 2.6rem;
+.form__button--main {
     padding: 2rem 9rem;
 }
 
 @media (min-width: 768px) {
-    .form__button__submit--main {
+    .form__button--main {
         margin-bottom: 0;
         margin-right: 2.3rem;
     }
 }
 
-.form__button__submit--back {
+.form__button--back {
     padding: 2rem 12rem;
 }
 
@@ -193,11 +192,11 @@ img {
 
 .hangman {
     margin-top: 3rem;
-    width: 40rem;
+    width: 35rem;
     height: 45rem;
 }
 
-.juego__button__submit {
+.juego__button {
     border: none;
     border-radius: 1rem;
     width: 100%;
@@ -205,30 +204,35 @@ img {
 }
 
 @media (min-width: 768px) { 
-    .juego__button__submit {
+    .juego__button {
         width: auto;
         font-size: 2.6rem;
     }
 }
 
-.juego__button__submit--main {
+.juego__button--main {
     padding: 2rem 8rem;
     margin: 2rem 0;
 }
 
 @media (min-width: 768px) { 
-    .juego__button__submit--main {
+    .juego__button--main {
         margin-right: 2rem;
     }
 }
 
-.juego__button__submit--back {
+.juego__button--back {
     padding: 2rem 10rem;
+}
+
+.hidden {
+    color: transparent;
 }
 
 /*Footer*/
 
 .footer {
+    margin: 4rem;
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
     text-align: center;

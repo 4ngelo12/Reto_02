@@ -25,6 +25,7 @@
             <input type="button" class="boton boton--secundario button--style button--style--sec"
                 value="Agregar nueva palabra">
         </div>
+        <!--.principal-->
 
         <div class="nueva-palabra flex flex--centrar none">
             <form class="form">
@@ -36,28 +37,40 @@
                 </div>
 
                 <div class="form__button">
-                    <input class="form__button__submit form__button__submit--main button--style button--style--pri"
+                    <input class="form__button form__button--main button--style button--style--pri"
                         type="button" value="Guardar y empezar">
-                    <input class="form__button__submit form__button__submit--back button--style button--style--sec"
+                    <input class="form__button form__button--back button--style button--style--sec"
                         type="button" value="Cancelar">
                 </div>
             </form>
         </div>
+        <!--.nueva-palabra-->
 
         <div class="juego flex flex--centrar none">
             <div class="juego__canva">
                 <canvas class="hangman"></canvas>
             </div>
 
-            <div class="juego__lc"></div>
+            <div class="juego__cl"></div>
 
             <div class="juego__lu"></div>
 
             <div class="juego__button">
-                <input class="juego__button__submit juego__button__submit--main button--style button--style--pri"
+                <input class="juego__button juego__button--main button--style button--style--pri"
                     type="button" value="Nuevo juego">
-                <input class="juego__button__submit juego__button__submit--back button--style button--style--sec"
+                <input class="juego__button juego__button--back button--style button--style--sec"
                     type="button" value="Salir">
+            </div>
+        </div>
+        <!--.juego-->
+
+        <div class="game-over">
+            <div>
+                <img src="" alt="">
+            </div>
+
+            <div>
+                <img src="" alt="">
             </div>
         </div>
     </main>
@@ -68,7 +81,6 @@
 
     <script src="js/secciones.js"></script>
     <script src="js/juego.js"></script>
-    <script src="js/muneco.js"></script>
 </body>
 
 </html>

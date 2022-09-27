@@ -2,8 +2,8 @@ var inicio = document.querySelector(".principal"), newword = document.querySelec
     newgame = document.querySelector(".juego");
 
 let btnNewgame = document.querySelector(".boton--primario"), btnNewword = document.querySelector(".boton--secundario"),
-    btnCancelar = document.querySelector(".form__button__submit--back"), 
-    btnSalir = document.querySelector(".juego__button__submit--back");
+    btnCancelar = document.querySelector(".form__button--back"), 
+    btnSalir = document.querySelector(".juego__button--back");
 
 btnNewword.onclick = SeccionNuevaPalabra;
 btnNewgame.onclick = SeccionJuego;
