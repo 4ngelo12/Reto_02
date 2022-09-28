@@ -1,17 +1,21 @@
 let PalabrasLista = ["HTML", "GITHUB", "JAVA", "ALURA", "LINKEDIN", "PALABRA", "SECRETO", "IDIOMA", "CODIGO", "DISCORD", "ARCHIVO"],
     containword = document.querySelector(".juego__cl"), usedlettergame = document.querySelector(".juego__lu"),
-    btnStartGame = document.querySelector(".juego__button--main");
+    btnStartGame = document.querySelector(".juego__button--main"), btnNuevaPalabra = document.querySelector(".form__button--main"),
+    caracteresValidos = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U",
+        "V", "W", "X", "Y", "Z"];
 
-let color = "#000"
+let color = "#0a3871"
+let pantalla = document.querySelector(".hangman");
+let pincel = pantalla.getContext("2d");
+let selectedword, usedletter, hits, error, word;
 
-let selectedword, usedletter, hits, error;
+btnStartGame.onclick = Reset;
+btnNuevaPalabra.onclick = nuevaPalabra;
 
-btnStartGame.onclick = Start;
-
+/*Dibujo de ahorcado*/
 
 function drawHangmang() {
-    let pantalla = document.querySelector(".hangman");
-    let pincel = pantalla.getContext("2d");
+
     //dibujo del muñeco
     //piso
     if (error == 1) {
@@ -106,6 +110,82 @@ function drawHangmang() {
     }
 }
 
+/*Insertar Palabras*/
+
+function limpiarTexto() {
+    var texto = document.querySelector(".form__input");
+    texto.value = "";
+}
+
+function insertarPalabra(palabra) {
+    PalabrasLista.push(palabra);
+}
+
+function nuevaPalabra() {
+    var palabra = document.querySelector(".form__input");
+
+    if (palabra.value.length == 0) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'No ha ingresado ningún caracter',
+            title: 'Error!!!',
+            showConfirmButton: true,
+        })
+        return;
+    }
+
+    for (var i = 0; i < palabra.value.length; i++) {
+        if (!caracteresValidos.includes(palabra.value.toUpperCase()[i])) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                text: 'Solo debe ingresar letras, no número o caracteres especiales',
+                title: 'Espere',
+                showConfirmButton: true,
+            })
+            return;
+        }
+    }
+
+    if (palabra.value.length >= 9) {
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            text: 'Su palabra tiene más de 8 letras, por favor lea la advertencia',
+            title: 'Espere',
+            showConfirmButton: true,
+        })
+        return;
+    }
+    if (PalabrasLista.includes(palabra.value.toUpperCase())) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: 'La palabra que ha ingresado ya esta registrada',
+            title: 'Cuidado',
+            showConfirmButton: true,
+        })
+        return;
+    }
+
+    if (!PalabrasLista.includes(palabra.value.toUpperCase())) {
+        insertarPalabra(palabra.value.toUpperCase());
+        limpiarTexto;
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'La palabra que ha ingresado se ha registrado correctamente',
+            title: 'Listo',
+            showConfirmButton: true,
+        })
+        limpiarTexto();
+        return;
+    }
+}
+
+/* Funciones del juego */
+
 function Start() {
     usedletter = [];
     error = 0;
@@ -117,7 +197,7 @@ function Start() {
     document.addEventListener("keydown", letterEvent);
 }
 function randomWord() {
-    let word = PalabrasLista[Math.floor((Math.random() * PalabrasLista.length))].toUpperCase();
+    word = PalabrasLista[Math.floor((Math.random() * PalabrasLista.length))].toUpperCase();
     selectedword = word.split('');
 
     useWord();
@@ -125,7 +205,7 @@ function randomWord() {
 
 function useWord() {
     selectedword.forEach(letter => {
-        var letras = document.createElement('span');
+        var letras = document.createElement('div');
         letras.innerHTML = letter.toUpperCase();
         letras.classList.add('letter');
         letras.classList.add('hidden');
@@ -155,6 +235,7 @@ function letterInput(letter) {
 
 function viewLetter(letter) {
     const letterElement = document.createElement("span");
+    letterElement.classList.add('juego__lu__span')
     letterElement.innerHTML = letter;
     usedlettergame.appendChild(letterElement);
 }
@@ -165,7 +246,8 @@ function letterFalse() {
     if (error == 11) {
         let pantalla = document.querySelector(".hangman");
 
-        GameOver();
+        Derrota();
+        Reset();
     }
 }
 
@@ -184,22 +266,28 @@ const correctLetter = (letter) => {
 
 function GameOver() {
     document.removeEventListener("keydown", letterEvent);
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        text: 'Has ganado!!',
+        title: '¡¡¡Felidcidades!!!',
+        showConfirmButton: true,
+    })
 }
 
-function verificarTeclaMobile() {
-    MOBILEINPUT.addEventListener("input", function (e) {
-        setTimeout(() => {
-            MOBILEINPUT.value = "";
-        }, 150);
-        let letraPresionada = e.data;
-        letraSeleccionada = letraPresionada;
-        let padron = /[A-Z]/g;
-        let resultadoPadron = padron.test(letraPresionada);
-
-        if (resultadoPadron != true) {
-            alert("INGRESE LETRAS EN MAYUSCULAS")
-        } else {
-            dibujarLetra();
-        }
-    });
+function Derrota() {
+    document.removeEventListener("keydown", letterEvent);
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        text: 'Se te han acabado las vidas, la palabra era ' + word,
+        title: 'Derrota',
+        showConfirmButton: true,
+    })
 }
+
+function Reset() {
+    pincel.clearRect(0, 0, 350, 450);
+    Start();
+}
+

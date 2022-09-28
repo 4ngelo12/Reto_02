@@ -1,6 +1,7 @@
 :root {
     --fuentePrincipal: 'Roboto Mono', monospace;
     --fuenteBotones: 'PT Sans', sans-serif;
+    --fuenteLetras: 'Nanum Gothic', sans-serif;
 }
 
 html {
@@ -144,11 +145,15 @@ img {
     font-size: 2.2rem;
     margin-bottom: 20rem;
     padding: 1.5rem;
-    color: #7a7a7a;
+    color: #1e6bab;
+}
+
+.form__input::placeholder {
+    color: #4e4e4e;
 }
 
 .form__advertencia {
-    align-items: center;
+    display: flex;
     font-size: 1.7rem;
 }
 
@@ -191,9 +196,33 @@ img {
 /*Juego*/
 
 .hangman {
-    margin-top: 3rem;
     width: 35rem;
     height: 45rem;
+}
+
+.juego__cl {
+    margin: 2rem 0;
+    display: inline-block;
+}
+
+.hidden {
+    color: transparent;
+}
+
+.letter {
+    display: inline-block;
+    text-align: center;
+    width: 3rem;
+    font-family: var(--fuenteLetras);
+    margin: 0 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    border-bottom: 5px solid #06798a;
+}
+
+.juego__lu__span {
+    font-size: 2.8rem;
+    margin: 0 .4rem;
 }
 
 .juego__button {
@@ -225,8 +254,33 @@ img {
     padding: 2rem 10rem;
 }
 
-.hidden {
-    color: transparent;
+/*Swetalert*/
+
+.swal2-title {
+    font-size: 3rem;
+}
+
+.swal2-html-container {
+    font-size: 2rem;
+}
+
+.swal2-styled.swal2-confirm {
+    padding: 1rem 10rem;
+    font-size: 1.6rem;
+}
+
+@media (min-width: 768px) { 
+    .swal2-container.swal2-center>.swal2-popup {
+        width: 60rem;
+    }
+    
+    .swal2-title {
+        font-size: 3.4rem;
+    }
+
+    .swal2-html-container {
+        font-size: 2rem;
+    }
 }
 
 /*Footer*/
